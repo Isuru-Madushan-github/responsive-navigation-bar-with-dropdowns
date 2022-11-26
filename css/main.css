@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+li{
+    list-style: none;
+    font-size: 1.1em;
+}
+nav{
+    background-color: rgba(0, 0, 0,0.9);
+    width: 100%;
+    z-index: 9;
+    height: 45px;
+    line-height: 45px;
+}
+nav .wrapper{
+    max-width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .wrapper .logo{
+    font-size: 1.5em;
+    background-color: rgb(255, 0, 0);
+    padding: 0 1.4rem;
+}
+nav .wrapper .logo a span{
+    background: black;
+    color: rgb(255, 255, 255);
+    padding: .2rem .3rem;
+}
+nav .wrapper .logo a{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+nav .wrapper .nav-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .wrapper .nav-links > li{
+    padding: 0 2rem;
+}
+nav .wrapper .nav-links > li > a{
+    transition: all 0.3s ease-in;
+    border-bottom:0px solid white;
+}
+nav .wrapper .nav-links > li > a:hover{
+    padding-bottom: .5rem;
+    border-bottom: 2px solid white;
+    color: rgb(174, 214, 250);
+}
+nav .wrapper .nav-links .dropdown{
+    background: gray;
+    position: absolute;
+    width: 230px;
+    line-height: 50px;
+    transition: all 0.3s ease-in;
+    opacity: 0;
+    visibility: hidden;
+}
+nav .wrapper .nav-links .dropdown li a{
+    padding-left: 1rem;
+    width: 100%;
+    display: block;
+    font-size: 0.9em;
+    transition: all 0.3s ease-in;
+    line-height: 40px;
+}
+nav .wrapper .nav-links .dropdown li a:hover ,
+nav .wrapper .nav-links .mega-menu .content .row .mega-menu-links li a:hover{
+    background: rgba(209, 207, 207,0.5);
+}
+nav .wrapper .nav-links > li:hover .dropdown{
+    visibility: visible;
+    opacity: 1;
+}
+nav .wrapper .nav-links .mega-menu{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    transition: all 0.3s ease-in;
+    opacity: 0;
+    visibility: hidden;
+}
+nav .wrapper .nav-links .mega-menu .content{
+    background: gray;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 1.5rem;
+}
+nav .wrapper .nav-links .mega-menu .content img{
+    max-width: 300px;
+    min-width: 170px;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-bottom: 2px solid grey;
+}
+nav .wrapper .nav-links .mega-menu .content .row{
+    width: calc(20% - 30px);
+    line-height: 40px;
+}
+nav .wrapper .nav-links .mega-menu .content header{
+    color: white;
+    border-bottom: 1px solid white;
+    font-size: 1.1em;
+}
+nav .wrapper .nav-links .mega-menu .content .row .mega-menu-links li a{
+    width: 100%;
+    display: block;
+    font-size: 0.9em;
+    padding-left: 20px;
+    transition: all .3s ease-in;
+}
+nav .wrapper .nav-links > li:hover .mega-menu{
+    visibility: visible;
+    opacity: 1;
+}
+nav .wrapper .button{
+    position: absolute;
+    right: 5%;
+    top: 0.6%;
+    display: none;
+}
+nav .wrapper .button i{
+    color: rgba(248, 248, 248,.8);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+input{
+    display: none;
+}
+@media(max-width:1100px) {
+    nav .wrapper .nav-links{
+        position: fixed;
+        height: 100vh;
+        background: rgb(63, 62, 62);
+        width: 100%;
+        max-width: 350px;
+        display: block;
+        top: 0;
+        left: -100%;
+        line-height: 40px;
+        overflow-x: auto;
+        transition: all .3s ease-in;
+    }
+    nav .wrapper .nav-links li{
+        margin: 1rem 0.7rem;
+    }
+    nav .wrapper .nav-links li a{
+        padding: 0 1.2rem;
+        display: block;
+        font-size: 1em;
+    }
+    nav .wrapper .nav-links .dropdown,
+    nav .wrapper .nav-links .mega-menu
+    {
+        position: static;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+    }
+    nav .wrapper .nav-links .mega-menu .content{
+        flex-direction: column;
+        background: transparent;
+    }
+    nav .wrapper .nav-links .mega-menu .content .row{
+        width: 100%;
+    }
+    nav .wrapper .menu-button{
+        display: block;
+    }
+    #menu-button:checked ~ .nav-links{
+        left: 0;
+    }
+    #menu-button:checked ~ .menu-button{
+        display: none;
+    }
+    #menu-button:checked ~ .close-button{
+        display: block;
+    }
+}
